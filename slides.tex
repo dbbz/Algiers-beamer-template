@@ -26,7 +26,16 @@
 % \usepackage[english]{babel}
 % \usepackage[utf8]{inputenc}
 
-
+% It puts a simplistic plain slide with the section name 
+% at the beginning of each section
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+\AtBeginSection[]
+{
+\plaintitle{\currentname}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,7 +53,7 @@
 \end{frame}
 
 \section{Section}
-\plaintitle{Section}
+% \plaintitle{Section}
 
 \begin{frame}[c]
 \frametitle{Slide 1}
