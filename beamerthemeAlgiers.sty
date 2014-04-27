@@ -1,0 +1,78 @@
+% Copyright 2014 by Djalel Benbouzid
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+
+\mode<presentation>
+
+\useinnertheme{rectangles}
+\usecolortheme{dagrine}
+\useoutertheme{splitprog}
+
+\setbeamercolor*{titlelike}{parent=structure}
+
+\setbeamertemplate{navigation symbols}{%
+}
+
+\setbeamertemplate{frametitle}{
+\begin{centering}
+\fontfamily{kurier}\selectfont{\insertframetitle}
+\par
+\end{centering}
+}
+
+% Plain slide for sections
+\newcommand{\plaintitle[2]}{
+\begingroup 
+ \setbeamercolor{background canvas}{bg=grizoo}
+\begin{frame}[c, plain, noframenumbering]
+\vspace{4cm}
+\fontfamily{kurier}\selectfont{\LARGE{\textcolor{white}{#2}}}
+\end{frame}
+\endgroup
+}
+
+% Title / subtitle
+\renewcommand{\framesubtitle}[3][2cm]{\frametitle{\hspace{-#1}#2\\\hspace{#1}\large{\textcolor{beautyblue}{#3}}}}
+
+% For python code
+\usepackage{listings} 
+ % Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+ \newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{beautyblue}, %deepblue
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{grine},    % Custom highlighting style % deepred
+stringstyle=\color{dagrine}, %deepgreen
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+}}
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+\mode
+<all>
