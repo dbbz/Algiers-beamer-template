@@ -5,6 +5,8 @@
 %%% My favorite packages
 
 \usepackage[default]{sourcesanspro}
+% \usepackage[default]{raleway}
+
 \usepackage[T1]{fontenc}
 \usefonttheme[onlymath]{serif}
 
@@ -23,7 +25,7 @@
 % \usepackage{natbib}
 % \renewcommand{\bibsection}{\subsubsection*{\bibname } } %prevents natbib from adding a section
 
-% \usepackage[english]{babel}
+\usepackage[english]{babel}
 % \usepackage[utf8]{inputenc}
 
 % It puts a simplistic plain slide with the section name 
@@ -37,6 +39,8 @@
 \plaintitle{\currentname}
 }
 
+% Take this off when using the template
+\usepackage{blindtext}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -65,11 +69,30 @@
 
 \begin{frame}[c]
 \framesubtitle{Slide}{With subtitle}
+\blindtext
 \end{frame}
 
 \begin{frame}[c]
-\framesubtitle[1cm]{Slide}{With subtitle (2)}
+\framesubtitle[1cm]{Slide}{With shifted subtitle (2)}
+\blindmathtrue
+\blindtext
 \end{frame}
+
+\begin{frame}[c]
+\frametitle[1cm]{Slide}
+\blinditemize
+\end{frame}
+
+\begin{frame}[c]
+\frametitle[1cm]{Slide}
+\blinddescription
+\end{frame}
+
+\begin{frame}[c]
+\frametitle[1cm]{Slide}
+\blindenumerate
+\end{frame}
+
 
 
 % A trick for having back slides while ending the slide counter
